@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "vst-scanner-and-deduplicator"
+version = "0.1.0"
+description = "Scan VST2/VST3 plugins on Windows and identify VST2 duplicates when a VST3 exists"
+authors = ["SherpaPsy"]
+readme = "README.md"
+packages = [{ include = "vst_scanner_and_deduplicator", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+pefile = "^2024.8.26"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.10"
+
+[tool.poetry.scripts]
+vst-scan = "vst_scanner_and_deduplicator.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"
